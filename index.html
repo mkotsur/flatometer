@@ -30,7 +30,7 @@
         <div class="span8" >
             <ul>
                 <li ng-repeat="flat in flats">
-                    <fm-flat item="flat" />
+                    <fm-flat flat="flat" remove="flats.splice(flats.indexOf(flat), 1)" />
                 </li>
             </ul>
         </div>

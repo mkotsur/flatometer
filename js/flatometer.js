@@ -3,10 +3,12 @@ angular.module('Flatometer', [])
         return {
             restrict: 'E',
             template: '<strong>{{flat.address}}</strong>: <i>{{flat.note}}</i>' +
+                ' <a ng-click="remove()">X</a>' +
                 '<div>' +
                 '</div>',
             scope: {
-                flat: '=item'
+                flat: '=',
+                remove: '&'
             }
         }
     })
