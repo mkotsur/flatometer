@@ -1,21 +1,28 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="Flatometer">
 
 <head>
     <title>FlatoMeter</title>
     <link rel="stylesheet" href="./css/flatometer.css" />
+    <link rel="stylesheet" href="./css/bootstrap/css/bootstrap.min.css" />
 
     <script src="./js/angular/angular-1.0.1-ffb27013.min.js"></script>
+    <script src="./js/angular/angular-bootstrap-1.0.1-ffb27013.min.js"></script>
+
     <script src="./js/flatometer.js"></script>
 </head>
 <body>
-    <div ng-controller="FlatsCtl">
-        <ul>
-            <li ng-repeat="flat in flats">
-                <strong>{{flat.address}}</strong>: <i>{{flat.note}}</i>
-            </li>
-        </ul>
+<div class="container" role="main">
+    <div class="row">
+        <div class="span8" ng-controller="FlatsCtl">
+            <ul>
+                <li ng-repeat="flat in flats">
+                    <fm-flat item="flat" />
+                </li>
+            </ul>
+        </div>
     </div>
+</div>
 </body>
 
 

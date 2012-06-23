@@ -1,3 +1,17 @@
+angular.module('Flatometer', [])
+    .directive('fmFlat', function() {
+        return {
+            restrict: 'E',
+            template: '<strong>{{flat.address}}</strong>: <i>{{flat.note}}</i>' +
+                '<div>' +
+                '</div>',
+            scope: {
+                flat: '=item'
+            }
+        }
+    })
+
+
 var FlatsCtl = function($scope) {
 
     $scope.flats = [
