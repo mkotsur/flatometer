@@ -16,6 +16,21 @@ angular.module('Flatometer', []).config(function($routeProvider) {
             }
         }
     })
+    .directive('fmTabs', function() {
+        return {
+            restrict: 'E',
+            template: '<ul class="nav nav-tabs">' +
+                '<li class="active"><a href="/#/">My Flats</a></li>' +
+                '<li><a href="/#/add">Add a flat</a></li>' +
+                '</ul>',
+            link: function postLink(scope, element, attrs) {
+                element.find('a').bind('click', function(a) {
+                    element.find('li').removeClass('active');
+                    angular.element(a.target).parent().addClass('active');
+                });
+            }
+        }
+    });
 
 
 var FlatsCtl = function($scope) {
