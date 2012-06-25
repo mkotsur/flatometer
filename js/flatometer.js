@@ -1,7 +1,6 @@
 angular.module('Flatometer', []).config(function($routeProvider) {
         $routeProvider.when('/', {templateUrl: './js/templates/flats.html'});
         $routeProvider.when('/add', {templateUrl: './js/templates/add.html'});
-        $routeProvider.when('/settings', {templateUrl: './js/templates/settings.html'});
     })
     .directive('fmFlat', function() {
         return {
@@ -28,7 +27,8 @@ angular.module('Flatometer', []).config(function($routeProvider) {
                     element.find('li').removeClass('active');
                     angular.element(a.target).parent().addClass('active');
                 });
-            }
+            },
+            controller: TabsCtrl
         }
     });
 
@@ -48,3 +48,14 @@ var FlatsCtl = function($scope) {
 
     return this;
 };
+
+var TabsCtrl = function($scope, $element, $location) {
+    angular.forEach($element.find('li'), function(li) {
+        li = angular.element(li);
+        if (li.find('a').attr('href') == '/#' + $location.path()) {
+            li.addClass('active');
+        } else {
+            li.removeClass('active');
+        }
+    })
+}
