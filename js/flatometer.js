@@ -1,4 +1,8 @@
-angular.module('Flatometer', [])
+angular.module('Flatometer', []).config(function($routeProvider) {
+        $routeProvider.when('/', {templateUrl: './js/templates/flats.html'});
+        $routeProvider.when('/add', {templateUrl: './js/templates/add.html'});
+        $routeProvider.when('/settings', {templateUrl: './js/templates/settings.html'});
+    })
     .directive('fmFlat', function() {
         return {
             restrict: 'E',

@@ -9,32 +9,13 @@
     <script src="./js/angular/angular-1.0.1-ffb27013.min.js"></script>
     <script src="./js/angular/angular-bootstrap-1.0.1-ffb27013.min.js"></script>
 
+    <script type="text/ng-template" src="./js/templates/flats.html"></script>
+    <script type="text/ng-template" src="./js/templates/settings.html"></script>
     <script src="./js/flatometer.js"></script>
 </head>
 <body>
-<div class="container" role="main">
-    <div class="row" ng-controller="FlatsCtl">
-        <div class="span4">
-            <form>
-                <label for="address">Address:</label>
-                <input type="text" id="address" ng-model="new.address">
-
-                <label for="note">Note:</label>
-                <input type="text" id="note" ng-model="new.note">
-
-                <br>
-                <button ng-click="flats.push(new); new = null;">Add</button>
-
-            </form>
-        </div>
-        <div class="span8" >
-            <ul>
-                <li ng-repeat="flat in flats">
-                    <fm-flat flat="flat" remove="flats.splice(flats.indexOf(flat), 1)" />
-                </li>
-            </ul>
-        </div>
-    </div>
+<div class="container" role="main" ng-controller="FlatsCtl">
+    <div class="row-fluid" ng-view></div>
 </div>
 </body>
 
